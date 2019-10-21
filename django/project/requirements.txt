@@ -1,0 +1,16 @@
+Django==2.2.6
+django-extensions==2.0.7
+django-redis==4.9.0
+djangorestframework==3.8.2
+docutils==0.14
+psycopg2>=2.7
+psycopg2-binary==2.8.3
+PyJWT==1.4.2
+redis==2.10.6
+requests==2.19.1
+pytest==4.4.0
+pytest-django==3.4.8
+django-import-export==1.2.0
+joblib==0.13.2
+graphene-django==2.6.0
+django-filter==2.2.0

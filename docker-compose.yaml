@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  # nginx:
+  #   image: nginx:latest
+  #   container_name: production_nginx
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf
+  #   ports:
+  #     - 80:80
+
+  postgres_db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=waldorf
+      - POSTGRES_PASSWORD=wh3r3isw@ld0
+      - POSTGRES_DB=spaceaganalyticsdev
+    ports:
+      - "5432:5432"
+
+  redis_db:
+    image: redis:3.2.8
+    command: redis-server --appendonly yes
+    restart: always
+    ports:
+      - "6380:6380"
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./django/project:/code
+    ports:
+      - "8000:8000"
+    tty: true
+    restart: always
+    depends_on:
+      - postgres_db
+      - redis_db
