@@ -11,6 +11,6 @@ requests==2.19.1
 pytest==4.4.0
 pytest-django==3.4.8
 django-import-export==1.2.0
-joblib==0.13.2
+joblib==1.2.0
 graphene-django==2.6.0
 django-filter==2.2.0
